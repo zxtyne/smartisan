@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-icon name="menu" color="light" class="menuIo" (click)="openModal()"></ion-icon>
+    <ion-title>商品详情</ion-title>
+    <ion-icon name="person" color="light" class="personIo"></ion-icon>
+    <ion-icon name="cart" color="light" class="cartIo"></ion-icon>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="main" >
+	<ion-item>       
+  		<p style="float: left;font-size: 17px;color: black;">《深泽直人》</p>
+ 		<p style="float: right;font-weight: 500;font-size:18px;color: red;"> ¥ 149.00</p>		
+ 	</ion-item>
+
+ 	<ion-card class="ion-card">
+
+    <ion-list>
+        <ion-grid ion-item>
+          <ion-row>
+            <ion-col col-12 class="ion-col1"  *ngFor="let shop of hot_shop">
+              <ion-icon name="arrow-back" style="font-size:20px;float:left;position: relative;top: 50%;margin-left: 10px;"></ion-icon>
+              <img [src]="shop.image" class="shop-image1"/>
+              <ion-icon name="arrow-forward" style="font-size:20px;float: right;position: relative;top: -43%;margin-right: 10px"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-list>
+		    <ion-item  (click)="itemSelected(item)" class="select-menu">
+		      <p style="color:black">选择版本</p>
+		      <button style="font-size: 15px;font-weight: 600;height:50px;width:100px;background-color: white;border:2px solid grey;border-radius: 5px;color: grey;">平装版</button>
+		    </ion-item>
+		  </ion-list>
+		  <ion-list>
+		    <ion-item>
+		      <button class="more-bt" (click)="sub(num)" ><ion-icon name="remove"></ion-icon></button>
+		      <ion-col col-2 style="font-size: 25px;"><span>{{num}}</span></ion-col>
+		      <button  class="more-bt" (click)="add()" ><ion-icon name="add"></ion-icon></button>
+		    </ion-item>
+		  </ion-list>
+		  <ion-list>
+		    <ion-item class="decripte">
+		      <p>* 非质量问题退货，需保证塑封且完好，不影响二次销售。</p>
+		      <p>* 已经拆封或有人为损坏影响二次销售的图书不支持 7 天无理由退货。</p>
+		      <p>* 7 天无理由退货运费由用户承担。</p> 
+		    </ion-item>
+		  </ion-list>
+		  <ion-item>
+		  	<button ion-button color="primary" block (click)="signLoading()" style="font-size:18px;font-weight:600;height:50px;">加入购物车</button>
+		  </ion-item>
+        </ion-grid>
+    </ion-list>
+  </ion-card>
+</ion-content>
+<!-- 	  <ion-item>
+	    <ion-icon name="logo-twitter" item-left style="color: #55acee"></ion-icon>
+	    关注
+	    <ion-badge item-right color="secondary">260K</ion-badge>
+	  </ion-item>
+	  <ion-card>
+		  <ion-item>
+		    <ion-avatar item-left>
+		      <img src="assets/img/marty-avatar.png">
+		    </ion-avatar>
+		    <h2>Marty McFly</h2>
+		    <p>November 5, 1955</p>
+		  </ion-item>
+
+		  <img src="assets/img/advance-card-bttf.png">
+
+		  <ion-card-content>
+		    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+		  </ion-card-content>
+
+		  <ion-row>
+		    <ion-col>
+		      <button ion-button icon-left clear small (click)="presentActionSheet()">
+		        <ion-icon name="thumbs-up"></ion-icon>
+		        <div>12 喜欢</div>
+		      </button>
+		    </ion-col>
+		    <ion-col>
+		      <button ion-button icon-left clear small  (click)="showAlert()">
+		        <ion-icon name="text"></ion-icon>
+		        <div>4 评论</div>
+		      </button>
+		    </ion-col>
+		    <ion-col center text-center>
+		      <ion-note>
+		        11h ago
+		      </ion-note>
+		    </ion-col>
+		  </ion-row>
+		</ion-card>
+		<ion-item>
+		  <ion-label>Daenerys Targaryen</ion-label>
+		  <ion-checkbox color="blue" checked="true"></ion-checkbox>
+		</ion-item>
+		<ion-item>
+	      <ion-label>Start Date</ion-label>
+	      <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="event.month"></ion-datetime>
+	    </ion-item>
+		<ion-item>
+		  <ion-label>Start Time</ion-label>
+		  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+		</ion-item> -->
+

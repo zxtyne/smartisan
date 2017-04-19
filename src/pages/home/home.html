@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-icon name="menu" color="light" class="menuIo" (click)="openModal()"></ion-icon>
+    <ion-title><ion-icon name="at" color="light" class="atIo"></ion-icon></ion-title>
+    <ion-icon name="person" color="light" class="personIo"></ion-icon>
+    <ion-icon name="cart" color="light" class="cartIo"></ion-icon>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="main">
+
+  <ion-slides pager class="slides"  [options]="mySlideOptions" > 
+    <ion-slide *ngFor="let slide of slides">
+      <!-- <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary" (click)="presentToast('top')">Skip</button>
+        </ion-buttons>
+      </ion-toolbar> -->
+      <img [src]="slide.image" class="slide-image"/>
+      <!-- <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p> -->
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6><img src="../assets/img/smartisan/IMG_2229.png" class="main-image1"/></ion-col>
+      <ion-col col-6><img src="../assets/img/smartisan/IMG_2230.png" class="main-image2"/></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="ion-card">
+    <ion-card-header class="card-head">
+      热门商品
+    </ion-card-header>
+
+    <ion-list>
+        <ion-grid ion-item>
+          <ion-row>
+            <ion-col col-6 class="ion-col1"  *ngFor="let shop of hot_shop">
+              <img [src]="shop.image" class="shop-image1"/>
+              <ion-card-title [innerHTML]="shop.title">
+              </ion-card-title>
+              <p [innerHTML]="shop.description"></p>
+              <span [innerHTML]="shop.price"></span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-list>
+  </ion-card>
+
+  <ion-card class="ion-card">
+  <ion-card-header class="card-head">
+    官方精选
+  </ion-card-header>
+
+  <ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-13 class="offical">
+            <img src="../assets/img/smartisan/selection/selection.jpg" class="shop-image2"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 class="ion-col1"  *ngFor="let shop of offical">
+            <img [src]="shop.image" class="shop-image2"/>
+            <ion-card-title [innerHTML]="shop.title">
+            </ion-card-title>
+            <p [innerHTML]="shop.description"></p>
+            <span [innerHTML]="shop.price"></span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </ion-card>
+
+  <ion-card class="ion-card">
+  <ion-card-header class="card-head">
+    品牌精选
+  </ion-card-header>
+
+  <ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-13 class="offical">
+            <img src="../assets/img/smartisan/selection2/selection2.jpg" class="shop-image2"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 class="ion-col1"  *ngFor="let shop of brand">
+            <img [src]="shop.image" class="shop-image3"/>
+            <ion-card-title [innerHTML]="shop.title">
+            </ion-card-title>
+            <p [innerHTML]="shop.description"></p>
+            <span [innerHTML]="shop.price"></span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </ion-card>
+
+  <ion-card class="ion-card">
+  <ion-card-header class="card-head">
+    锤子应用
+    <button ion-button color="light" class="more-bt">更多应用<ion-icon name="arrow-forward"></ion-icon></button>
+  </ion-card-header>
+
+  <ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 class="ion-col1"  *ngFor="let shop of app">
+            <img [src]="shop.image" class="shop-image4"/>
+            <ion-card-title [innerHTML]="shop.title">
+            </ion-card-title>
+            <p [innerHTML]="shop.description"></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </ion-card>
+
+  <ion-list>
+    <div *ngFor="let item of items" >
+    <ion-item  (click)="itemSelected(item)" class="select-menu">
+      {{ item.title }}
+      <ion-icon [name]="isHidden(item)?'arrow-down':'arrow-up'" style="float:right"></ion-icon>
+    </ion-item >
+    <ion-item *ngFor="let i of item.items" [hidden]="isHidden(item)" class="select-child">
+        {{ i.name }}
+    </ion-item>
+    </div>
+    <content class="ion-menu">
+      <p class="point">Copyright © 2017, Smartisan Digital Co., Ltd. All Rights Reserved.</p>
+      <p class="point">北京锤子数码科技有限公司 | <a>法律声明</a> | <a>隐私条款</a></p>
+      <p>京ICP备14041720号-1京ICP证140622号京公网安备11010502025474</p>
+    </content>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button id="backtop" ion-fab color="light" (click)="goTop()"><ion-icon name="arrow-dropup"></ion-icon></button>
+<!--     <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list> -->
+  </ion-fab>
+
+
+
+
+
+</ion-content>
