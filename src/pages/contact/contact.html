@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      设置
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-border>
+    <ion-list-header>
+      <ion-label style="font-size:2em" >工具</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name='alarm' item-left></ion-icon>
+      <ion-label>
+        闹铃
+      </ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle checked="true"></ion-toggle>
+      <ion-label>
+        文件
+      </ion-label>
+      <ion-icon name='albums' item-left></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='md-analytics' item-left></ion-icon>
+      网络
+      <ion-icon name='ios-analytics' item-right color="secondary"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='logo-angular' item-left></ion-icon>
+      angular
+      <ion-note item-right>
+      angular2.0
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-list no-border>
+    <ion-list-header>
+      <ion-label style="font-size:2em" >语言</ion-label>
+    </ion-list-header>
+
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+      <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-left>
+        <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-left></ion-icon>
+        {{ item.title }}
+      </button>
+    </ion-list>
+
+  </ion-list>
+
+
+
+
+</ion-content>
